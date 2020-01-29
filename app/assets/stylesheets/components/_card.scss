@@ -1,0 +1,26 @@
+.cocktail-card{
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.cocktail-card h2{
+  margin: 0px;
+}
+
+.no-deco{
+  text-decoration: none;
+  &:hover{
+    text-decoration:none;
+  }
+}
+
+.warning-ingredients{
+  font-style: italic;
+  opacity: .2;
+  margin-bottom: 40px;
+}

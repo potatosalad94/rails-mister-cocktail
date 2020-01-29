@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="page-title">Available Cocktails Recipies</h1>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-12 col-md-6 col-lg-3">
+        <%= link_to cocktail_path(cocktail), class: 'no-deco' do %>
+          <div class="cocktail-card bg-white" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.picture_url %>); background-size: cover;">
+            <h2><%= cocktail.name.capitalize %></h2>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

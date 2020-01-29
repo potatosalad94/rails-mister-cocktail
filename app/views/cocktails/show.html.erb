@@ -1,0 +1,33 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @cocktail.picture_url %>);">
+  <div class="container">
+    <h1><%= @cocktail.name.capitalize %></h1>
+  </div>
+</div>
+
+<div class="container">
+  <h3>Ingredients&nbsp;&nbsp;<i class="fas fa-flask"></i></h2>
+  <hr>
+  <% if @cocktail.ingredients.blank? %>
+    <p class="warning-ingredients">Add ingredients with the form below!</p>
+  <% else %>
+    <div class="cocktail-ingredients">
+      <ul>
+        <% @cocktail.ingredients.each do |ingredient| %>
+          <li><b><%= ingredient.name.capitalize %></b> -
+            <%= ingredient.doses.first.description %> |
+            <%= link_to dose_path(ingredient.doses.first), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h3>Add ingredients&nbsp;&nbsp;<i class="fas fa-plus"></i></h3>
+  <hr>
+  <%= simple_form_for([@cocktail, @dose]) do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient, prompt: "Select the ingredient" %>
+    <%= f.submit "Add dose", class: 'btn btn-primary'  %>
+  <% end %>
+</div>

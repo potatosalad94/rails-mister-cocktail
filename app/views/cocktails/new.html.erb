@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-8 offset-sm-2">
+      <h1 class="page-title">Add a new cocktail</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-8 offset-sm-2">
+      <%= simple_form_for (@cocktail) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :picture_url %>
+        <%= f.submit 'Add cocktail', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
