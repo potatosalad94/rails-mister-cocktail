@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @cocktail.picture_url %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%#= @cocktail.picture_url %>);">
   <div class="container">
     <h1><%= @cocktail.name.capitalize %></h1>
   </div>
@@ -27,7 +27,7 @@
   <hr>
   <%= simple_form_for([@cocktail, @dose]) do |f| %>
     <%= f.input :description %>
-    <%= f.association :ingredient, prompt: "Select the ingredient" %>
+    <%= f.association :ingredient, prompt: "Select the ingredient", input_html:  { class: "select2" } %>
     <%= f.submit "Add dose", class: 'btn btn-primary'  %>
   <% end %>
 </div>
